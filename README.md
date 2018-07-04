@@ -10,7 +10,7 @@ You can install wmctrl by using the command ```sudo apt-get install wmctrl``` .
 Download the script and give it the appropriate rights to run (you don't need sudo or anything like that).
 
 ```
-git clone https://github.com/flymia/Linux-Spotify-Current-Song-for-OBS.git
+git clone git@github.com:danhort/Linux-Deezer-Current-Song.git
 
 chmod +x deezercurrent
 
