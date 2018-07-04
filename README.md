@@ -27,4 +27,4 @@ This will copy the deezercurrent file to the /usr/bin directory, so you can run 
 
 ## Usage
 ### Running the application
-By running the ```deezercurrent``` command, you'll see this output:
+```deezercurrent```
