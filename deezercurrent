@@ -1,13 +1,23 @@
 #!/bin/bash
-#Grepping out the PID of spotify
-spotifyid=$(ps -ef | grep '[/]usr/share/spotify' | awk '{print $2}' | head -1)
 
-#Get the current song by listing all windows and grepping the matching window with the word "Deezer"
-currentsong=$(wmctrl -l | grep Deezer | sed -n 's/.*'$HOSTNAME'//p');
+# Get the current song by listing all windows and grepping the matching window with the pattern "- Deezer -"
+song=$(wmctrl -l -p | grep '\- Deezer -' | sed -n 's/.*'$HOSTNAME'//p');
 
-if [ -z "$currentsong"  ]; then
+if [ -z "$song"  ]; then
     echo 'Deezer is currently not palying!';
     exit 1;
+else
+    # Split the string and only show the name and artist
+    delimiter='- Deezer -';
+    array=();
+    while [[ $song ]]; do
+        array+=( "${song%%"$delimiter"*}" );
+        song=${s#*"$delimiter"};
+    done;
+    echo $array;
 fi;
 
-echo $currentsong;
+
+
+
+
