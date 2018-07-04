@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+scriptdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [[ $EUID -ne 0 ]]; then
+    echo "You have to be root to install DeezerCurrent. Try running with sudo."
+    exit 1;
+fi
+
+echo 'Installing DeezerCurrent';
+chmod +x "$scriptdir/deezercurrent"
+
+cp "$scriptdir/deezercurrent" /usr/bin
+
+echo 'Installation complete. Run DeezerCurrent with the command "deezercurrent".'
+exit 0;

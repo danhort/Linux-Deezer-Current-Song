@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+scriptdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [[ $EUID -ne 0 ]]; then
+    echo "You have to be root to uninstall DeezerCurrent. Try running with sudo."
+    exit 1;
+fi
+
+echo 'Uninstalling DeezerCurrent';
+
+rm -f "$(which deezercurrent)"
+
+echo 'Uninstallation complete. Goodbye and thanks for using DeezerCurrent.'
+exit 0;
